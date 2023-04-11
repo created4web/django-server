@@ -1,0 +1,121 @@
+//Project map aanmaken
+mkdir project-map
+
+//Ga naar project map
+cd project-map
+
+//Maak virtuele Python omgeving (venv)
+python -m venv mijnvenv
+
+//Start virtuele Python omgeving (venv)
+mijnvenv\Scripts\activate.bat
+
+//Asluiten virtuele Python omgeving (venv)
+deactivate
+
+//PIP updaten
+python -m pip install --upgrade pip
+
+//
+Maak in de project map "requirements.txt" aan en plaats hierin "Django~=3.2.10" (de versie die geinstalleerd moet worden)
+
+//Installeer Django
+python3 -m pip install -r requirements.txt
+
+//Django versie controleren
+django-admin --version
+
+//Django project aanmaken (mysite)
+django-admin.exe startproject mysite
+
+//SQL-database inrichten in de map (mysite)
+python manage.py migrate
+
+//Server starten
+python manage.py runserver
+
+//Blog aanmaken (blog)
+python manage.py startapp blog
+
+//Bewerk settings.py in de mysite map.
+'blog', toevoegen aan INSTALLED_APPS = [........]
+
+
+//Model aanmaken in Django
+Ga naar blog, models.py
+
+from django.conf import settings
+from django.db import models
+from django.utils import timezone
+
+class Post(models.Model):   
+   author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+   title = models.CharField(max_length=200)
+   text = models.TextField()
+   created_date = models.DateTimeField(default=timezone.now)
+   published_date = models.DateTimeField(blank=True, null=True)
+
+   def publish(self):
+       self.published_date = timezone.now()
+       self.save()
+
+   def __str__(self):
+       return self.title
+
+//In de virtuele omgeving en in de submap "mysite", hiermee maak je een koppeling met de database
+python manage.py makemigrations blog
+
+//Definitief naar database migreren
+python manage.py migrate blog
+
+
+//Administrative omgeving opzetten
+//Open in VS-Code submap "blog" en open het bestand "admin.py"
+//Voeg de volgende code toe:  
+
+from django.contrib import admin
+from .models import Post
+
+admin.site.register(Post)
+
+//Ga vervolgens naar
+http://127.0.0.1:8000/admin
+
+//Inloggen werkt nog niet
+//Maak een gebruiker aan
+
+python manage.py createsuperuser
+//Vul de gevraagde gegevens in
+
+//Start de server opnieuw op
+python manage.py runserver
+
+//Ga vervolgens naar
+http://127.0.0.1:8000/admin
+//Login met de gegevens die u aangemaat heeft
+
+
+
+-----------------------------------------------------------------------------
+
+//Een nieuwe map aanmaken
+mkdir mapnaam
+
+//Een nieuw bestand maken
+type NUL > test.py
+type NUL > test.txt
+
+//Map verwijderen
+rmdir /S
+
+//Terminal leeg maken
+cls
+
+//Terminal afsluiten
+exit
+
+---------------------------------------------------------------------------------
+
+Tijdzone NL is "CET"
+
+

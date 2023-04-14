@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'voetbalspeler',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
+# hieronder bepaalt u de taal van uw applicatie
 
 LANGUAGE_CODE = 'nl-nl'
 

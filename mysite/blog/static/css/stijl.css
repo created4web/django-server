@@ -1,0 +1,60 @@
+body {
+    background-color: darkred;
+}
+
+.header {
+    padding: 50px;
+    padding-left: 75px;
+    text-align: left;
+    background-color: orange;
+    font-size: 20px;
+}
+
+article {
+    border: 3px solid white;
+    background-color: pink;
+    padding: 5px;
+    margin: 15px;
+}
+
+.footer {
+    max-height: 50px;
+    padding: 20px;
+    text-align: right;
+    background: orange;
+    font-size: 16px;
+}
+
+.kolom {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+@media screen and (max-width: 750px) {
+    .kolom {
+        width: 100%;
+    }
+
+    .header {
+        padding: 25px;
+        padding-left: 30px;
+        text-align: left;
+        background-color: orange;
+        font-size: 12px;
+    }
+}
+
+h1 {
+    color: black;
+}
+
+a {
+    color: orange;
+}
+
+
+time {
+    color: black;
+}
